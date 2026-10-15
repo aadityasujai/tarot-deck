@@ -1,109 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Arcana — Contextual Tarot</title>
+<title>Arcana — Virtual Tarot Deck</title>
 <style>
 :root{color-scheme:dark;--bg:#100e17;--panel:#211a2c;--gold:#d7bd83;--text:#fbf7ff;--muted:#c1b7d0;--line:#50415f}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#493452,#100e17 75%);color:var(--text);font:16px/1.65 system-ui,sans-serif}
-main{max-width:1100px;margin:auto;padding:18px 14px 50px}
-header{text-align:center;padding:18px 0 25px}
-.brand,.eyebrow{color:var(--gold);letter-spacing:.15em;font-size:.8rem;font-weight:800}
-h1,h2,h3{font-family:Georgia,serif;font-weight:500}
-h1{font-size:clamp(2.2rem,7vw,3.5rem);margin:8px 0}
-p{color:var(--muted);margin:8px 0 12px}
-.panel{background:#211a2cf2;border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
-.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.option{background:#191522;color:var(--text);border:1px solid var(--line);border-radius:12px;text-align:left;padding:13px;min-height:88px;cursor:pointer}
-.option strong{display:block;color:var(--gold);margin-bottom:5px}
-.option span{font-size:.85rem;color:var(--muted)}
-.option[aria-pressed=true]{border:2px solid var(--gold);background:#352840}
-label{display:block;margin-top:16px;font-weight:700}
-textarea{display:block;width:100%;margin-top:8px;padding:12px;border-radius:10px;background:#191522;color:white;border:1px solid var(--line);font:inherit;resize:vertical}
-textarea:focus{outline:2px solid var(--gold);outline-offset:2px}
-button{font:inherit;cursor:pointer}
-.action{background:var(--gold);color:#241b2c;border:0;border-radius:10px;padding:12px 17px;font-weight:750;margin:10px 6px 0 0}
-.secondary{background:#30263d;color:white;border:1px solid var(--line)}
-.deck{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;margin-top:16px}
-.back{aspect-ratio:2/3;min-width:0;border:1px solid #c5a875;border-radius:8px;background:repeating-linear-gradient(45deg,#392744,#392744 8px,#2b2037 8px,#2b2037 16px);color:var(--gold);font-size:1.5rem}
-.back:disabled{opacity:.3}
-.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.result{background:#191522;border:1px solid var(--line);border-radius:14px;padding:15px;min-width:0}
-.position{color:var(--gold);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
-.cardtop{display:grid;grid-template-columns:112px 1fr;gap:14px;margin:12px 0;align-items:start}
-.art{width:100%;aspect-ratio:2/3;object-fit:contain;background:#f4ead2;border-radius:7px}
-.art.rev{transform:rotate(180deg)}
-.cardtitle{font:1.35rem Georgia,serif;color:var(--gold)}
-.pill{display:inline-block;margin:5px 0;padding:3px 8px;border:1px solid var(--line);border-radius:99px;font-size:.7rem;letter-spacing:.08em}
-.revlabel{color:#f0c987;border-color:#c9a96f}
-.sectiontitle{color:var(--gold);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin:16px 0 4px}
-.detail{color:#eee7f6;font-size:.94rem;white-space:pre-line}
-.prompt{color:var(--muted);font-size:.9rem}
-.status{color:var(--muted);font-size:.9rem}
-.hidden{display:none!important}
-.note{border-left:3px solid var(--gold);padding-left:12px;font-size:.9rem}
-.synthesis{line-height:1.8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#493452,#100e17 75%);color:var(--text);font:16px/1.65 system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:18px 14px 50px}header{text-align:center;padding:18px 0 25px}.brand,.eyebrow{color:var(--gold);letter-spacing:.15em;font-size:.8rem;font-weight:800}h1,h2,h3{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(2.2rem,7vw,3.5rem);margin:8px 0}p{color:var(--muted);margin:8px 0 12px}.panel{background:#211a2cf2;border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.option{background:#191522;color:var(--text);border:1px solid var(--line);border-radius:12px;text-align:left;padding:13px;min-height:88px;cursor:pointer}.option strong{display:block;color:var(--gold);margin-bottom:5px}.option span{font-size:.85rem;color:var(--muted)}.option[aria-pressed=true]{border:2px solid var(--gold);background:#352840}
+button{font:inherit;cursor:pointer}.action{background:var(--gold);color:#241b2c;border:0;border-radius:10px;padding:12px 17px;font-weight:750;margin:10px 6px 0 0}.secondary{background:#30263d;color:white;border:1px solid var(--line)}.deck{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;margin-top:16px}.back{aspect-ratio:2/3;min-width:0;border:1px solid #c5a875;border-radius:8px;background:repeating-linear-gradient(45deg,#392744,#392744 8px,#2b2037 8px,#2b2037 16px);color:var(--gold);font-size:1.5rem}.back:disabled{opacity:.3}
+.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.result{background:#191522;border:1px solid var(--line);border-radius:14px;padding:15px;min-width:0}.position{color:var(--gold);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}.cardtop{display:grid;grid-template-columns:112px 1fr;gap:14px;margin:12px 0;align-items:start}.art{width:100%;aspect-ratio:2/3;object-fit:contain;background:#f4ead2;border-radius:7px}.art.rev{transform:rotate(180deg)}.cardtitle{font:1.35rem Georgia,serif;color:var(--gold)}.pill{display:inline-block;margin:5px 0;padding:3px 8px;border:1px solid var(--line);border-radius:99px;font-size:.7rem;letter-spacing:.08em}.revlabel{color:#f0c987;border-color:#c9a96f}.sectiontitle{color:var(--gold);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin:16px 0 4px}.detail{color:#eee7f6;font-size:.94rem;white-space:pre-line}.prompt{color:var(--muted);font-size:.9rem}.status{color:var(--muted);font-size:.9rem}.hidden{display:none!important}.note{border-left:3px solid var(--gold);padding-left:12px;font-size:.9rem}.synthesis{line-height:1.8}
 @media(max-width:720px){.options{grid-template-columns:repeat(2,minmax(0,1fr))}.deck{grid-template-columns:repeat(6,minmax(0,1fr))}.results{grid-template-columns:1fr}.cardtop{grid-template-columns:100px 1fr}}
 @media(max-width:390px){.deck{grid-template-columns:repeat(5,minmax(0,1fr))}.panel{padding:13px}.cardtop{grid-template-columns:88px 1fr}}
 </style>
 </head>
-<body>
-<main>
-<header>
-<div class="brand">✧ ARCANA ✧</div>
-<h1>Your Virtual Tarot Deck</h1>
-<p>Draw your cards. Explore their individual meanings. Then read the story they create together.</p>
-<p>78 cards · Rider–Waite–Smith tradition · 1.5% reversal chance per card</p>
-</header>
-
-<section class="panel" id="setup">
-<div class="eyebrow">01 / YOUR READING</div>
-<h2>What would you like to explore?</h2>
-<p>Choose a spread. Your question is optional: leave it empty for a general reading, or write a specific question to shape every interpretation.</p>
-<div class="options" id="options"></div>
-<label for="question">Your question (optional)</label>
-<textarea id="question" rows="3" placeholder=""></textarea>
-<p class="status">Leave this box blank for a general reading. Nothing is assumed or added for you.</p>
-<button class="action" id="prepare">Prepare my deck</button>
-<button class="action secondary" id="reset">Reset</button>
-<p class="status" id="setupStatus">Choose a spread to begin.</p>
-</section>
-
-<section class="panel hidden" id="drawPanel">
-<div class="eyebrow">02 / SHUFFLE & DRAW</div>
-<h2 id="drawTitle"></h2>
-<p id="drawDescription"></p>
-<button class="action" id="shuffle">Shuffle deck</button>
-<p class="status" id="progress">0 cards drawn</p>
-<div class="deck" id="deck"></div>
-<p class="status" id="drawStatus">Shuffle before drawing a card.</p>
-</section>
-
-<section class="panel hidden" id="readingPanel">
-<div class="eyebrow">03 / YOUR READING</div>
-<h2 id="readingTitle"></h2>
-<p id="readingDescription"></p>
-<div id="questionUsed" class="note hidden"></div>
-<div class="results" id="results"></div>
-<section class="panel hidden" id="synthesisPanel">
-<div class="eyebrow">THE BIGGER PICTURE</div>
-<h2>How these cards work together</h2>
-<div class="detail synthesis" id="synthesisText"></div>
-<div class="sectiontitle">Practical takeaway</div>
-<div class="detail" id="synthesisAction"></div>
-</section>
-<button class="action" id="newReading">New reading</button>
-<button class="action secondary" id="again">Repeat this spread</button>
-<p class="note">Tarot is a symbolic tool for reflection, not a scientifically established way to predict the future. Use the reading to examine possibilities, not as proof or a substitute for real-world evidence.</p>
-</section>
+<body><main>
+<header><div class="brand">✧ ARCANA ✧</div><h1>Your Virtual Tarot Deck</h1><p>Draw your cards. Explore their individual meanings. Then read the story they create together.</p><p>78 cards · Rider–Waite–Smith tradition · 1.5% reversal chance per card</p></header>
+<section class="panel" id="setup"><div class="eyebrow">01 / YOUR READING</div><h2>What would you like to explore?</h2><p>Choose a spread for a general tarot reading. Draw from the shuffled deck and explore each card’s meaning, advice, and place in the spread.</p><div class="options" id="options"></div><div id="topicWrap" class="hidden" style="margin-top:14px"><label for="oneTopic" class="sectiontitle">One-card interpretation</label><select id="oneTopic" style="display:block;width:100%;max-width:440px;background:#191522;color:#fbf7ff;border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:6px"><option value="general">General Reading</option><option value="love">Love and Relationships</option><option value="career">Money and Career</option><option value="health">Health</option><option value="spirituality">Spirituality</option><option value="comprehensive">Comprehensive</option></select><p class="status">Comprehensive shows all available interpretation categories for this one-card reading.</p></div>
+<button class="action" id="prepare">Prepare my deck</button><button class="action secondary" id="reset">Reset</button><p class="status" id="setupStatus">Choose a spread to begin.</p></section>
+<section class="panel hidden" id="drawPanel"><div class="eyebrow">02 / SHUFFLE & DRAW</div><h2 id="drawTitle"></h2><p id="drawDescription"></p><button class="action" id="shuffle">Shuffle deck</button><p class="status" id="progress">0 cards drawn</p><div class="deck" id="deck"></div><p class="status" id="drawStatus">Shuffle before drawing a card.</p></section>
+<section class="panel hidden" id="readingPanel"><div class="eyebrow">03 / YOUR READING</div><h2 id="readingTitle"></h2><p id="readingDescription"></p><div class="results" id="results"></div>
+<section class="panel hidden" id="synthesisPanel"><div class="eyebrow">THE BIGGER PICTURE</div><h2>How these cards work together</h2><div class="detail synthesis" id="synthesisText"></div><div class="sectiontitle">Practical takeaway</div><div class="detail" id="synthesisAction"></div></section>
+<button class="action" id="newReading">New reading</button><button class="action secondary" id="again">Repeat this spread</button><p class="note">Tarot is a symbolic tool for reflection, not a scientifically established way to predict the future. Health interpretations are not medical advice. Use the reading to examine possibilities, not as proof or a substitute for real-world evidence.</p></section>
 </main>
-
 <script>
 const $=id=>document.getElementById(id);
-
 const majorData=[
 ["The Fool","beginnings, openness, spontaneity","You may be approaching a new experience without knowing every step. The card favours curiosity and learning by doing, while asking you to distinguish a considered risk from avoidable recklessness.","Try one small experiment and decide what safeguards or information you need before committing.","What could I try if I allowed myself to learn as I go?"],
 ["The Magician","agency, skill, resourcefulness, focused action","You may have more useful resources than you realise. Progress is likely to depend on combining your abilities, tools, and connections deliberately rather than waiting for ideal conditions. Also compare persuasive words with concrete follow-through.","List the resources already available, identify the missing piece, and take one observable step.","Which ability or resource am I underusing?"],
@@ -128,263 +50,105 @@ const majorData=[
 ["Judgement","reckoning, renewal, accountability, awakening","You may be reviewing an earlier chapter and deciding what to carry forward. Learn from the past without remaining defined by it. Renewal requires an honest account of both responsibility and growth.","Name the lesson, make amends where appropriate, and decide what you are ready to do differently.","What am I ready to acknowledge and change?"],
 ["The World","completion, integration, achievement, a new cycle","A phase may be reaching a meaningful conclusion. Achievement includes understanding what you learned and how the pieces fit together. Completion can also prepare you for a new level of work.","Mark what has been completed, recognise your contribution, and decide what the next chapter should build on.","What deserves closure before I begin again?"]
 ];
-
 const suits={
 Wands:{element:"Fire",domain:"initiative, ambition, creativity, and energy",upright:"This suit brings attention to motivation, risk, creative momentum, and how you direct your energy.",reversed:"Energy may be scattered, stalled, rushed, or depleted. Consider whether the issue is a lack of motivation, too many competing goals, or pressure without recovery."},
 Cups:{element:"Water",domain:"emotion, relationships, empathy, and imagination",upright:"This suit brings attention to emotional needs, attachment, empathy, imagination, and how feelings are expressed or received.",reversed:"Feelings may be difficult to name, overly idealised, withheld, or spilling into the situation. Emotional honesty and boundaries may matter."},
 Swords:{element:"Air",domain:"thought, communication, conflict, and decisions",upright:"This suit brings attention to beliefs, communication, analysis, conflict, and the decisions shaped by your thinking.",reversed:"Thinking may be clouded by worry, avoidance, miscommunication, or a truth that is difficult to face. Check assumptions against evidence."},
 Pentacles:{element:"Earth",domain:"work, resources, stability, and practical growth",upright:"This suit brings attention to tangible results, work, time, money, security, and the habits that create lasting stability.",reversed:"Practical foundations may need review: resources, consistency, priorities, or the sustainability of your current approach."}
 };
-
 const ranks=[
-["Ace","a beginning, opening, or available potential"],
-["Two","a choice, balance, or relationship between two factors"],
-["Three","collaboration, development, or early results"],
-["Four","stability, structure, or holding on"],
-["Five","friction, loss, scarcity, or disruption"],
-["Six","exchange, support, generosity, or adjustment"],
-["Seven","assessment, patience, strategy, or challenge"],
-["Eight","movement, practice, effort, or change"],
-["Nine","near-completion, resilience, or independence"],
-["Ten","culmination, responsibility, or the end of a cycle"],
-["Page","curiosity, learning, a message, or an emerging attitude"],
-["Knight","pursuit, movement, ambition, or a style of action"],
-["Queen","mature understanding, care, and inward mastery"],
-["King","leadership, responsibility, and outward mastery"]
+["Ace","a beginning, opening, or available potential"],["Two","a choice, balance, or relationship between two factors"],["Three","collaboration, development, or early results"],["Four","stability, structure, or holding on"],["Five","friction, loss, scarcity, or disruption"],["Six","exchange, support, generosity, or adjustment"],["Seven","assessment, patience, strategy, or challenge"],["Eight","movement, practice, effort, or change"],["Nine","near-completion, resilience, or independence"],["Ten","culmination, responsibility, or the end of a cycle"],["Page","curiosity, learning, a message, or an emerging attitude"],["Knight","pursuit, movement, ambition, or a style of action"],["Queen","mature understanding, care, and inward mastery"],["King","leadership, responsibility, and outward mastery"]
 ];
-
-let cards=[],selected="three",deck=[],drawn=[],shuffled=false,readingQuestion="";
+let cards=[],selected="three",deck=[],drawn=[],shuffled=false,oneTopic="general";
+let sourceMeanings = {};
+;
 
 const spreads={
 one:{title:"One Card",purpose:"One card for a central theme, question, or point of reflection.",positions:["Central message"]},
 three:{title:"Past · Present · Future",purpose:"Explore how an earlier influence may relate to the current situation and a possible direction.",positions:["Past influence","Present situation","Possible future"]},
 five:{title:"Five-Card Overview",purpose:"Explore the situation, support, challenge, advice, and possible outcome.",positions:["Central situation","Supporting influence","Main challenge","Advice","Possible outcome"]},
 celtic:{title:"Celtic Cross",purpose:"A ten-position reading of the central issue, its challenge, foundations, history, aims, near future, personal stance, environment, hopes and fears, and trajectory.",positions:["Present situation","Crossing challenge","Underlying foundation","Recent past","Conscious aim","Near future","Your approach","External environment","Hopes and fears","Possible outcome"]},
-relationship:{title:"Relationship",purpose:"Reflect on your experience, observable relationship dynamics, friction, and constructive direction.",positions:["Your experience","The other person's observable role","The dynamic between you","Main challenge","Constructive direction"]},
-love:{title:"Love",purpose:"Explore emotional needs, openness, obstacles, and possible ways forward in love.",positions:["Your current emotional position","What you seek or need","What complicates love","What may help","Possible direction"]},
-career:{title:"Career",purpose:"Explore your work situation, resources, obstacles, opportunities, and next steps.",positions:["Current career situation","Your strength or resource","Main obstacle","Opportunity or advice","Possible direction"]},
-wellbeing:{title:"Wellbeing",purpose:"Reflect on balance, pressure, boundaries, support, and sustainable self-care.",positions:["Current balance","Source of pressure","Resource or support","Helpful adjustment","Direction to nurture"]},
+relationship:{title:"Love and Relationships",purpose:"Reflect on your experience, observable relationship dynamics, friction, and constructive direction.",positions:["Your experience","The other person's observable role","The dynamic between you","Main challenge","Constructive direction"]},
+love:{title:"Love and Relationships",purpose:"Explore emotional needs, openness, obstacles, and possible ways forward in love.",positions:["Your current emotional position","What you seek or need","What complicates love","What may help","Possible direction"]},
+career:{title:"Money and Career",purpose:"Explore your work situation, resources, obstacles, opportunities, and next steps.",positions:["Current career situation","Your strength or resource","Main obstacle","Opportunity or advice","Possible direction"]},
+wellbeing:{title:"Health",purpose:"Reflect on balance, pressure, boundaries, support, and sustainable self-care.",positions:["Current balance","Source of pressure","Resource or support","Helpful adjustment","Direction to nurture"]},
 general:{title:"General Reading",purpose:"Explore central themes, tensions, influences, choices, and a possible direction.",positions:["Central theme","Tension or complication","Influence to notice","Helpful response","Possible direction"]}
 };
-
-const options=[
-["one","One card","A focused message."],
-["three","Three cards","Past, present, possible future."],
-["five","Five-card overview","Situation, support, challenge, advice, outcome."],
-["celtic","Celtic Cross","A detailed ten-card reading."],
-["relationship","Relationship","Connection, dynamics, and direction."],
-["love","Love","Emotional needs and possibilities."],
-["career","Career","Work, resources, and opportunities."],
-["wellbeing","Wellbeing","Balance, pressure, and self-care."],
-["general","General reading","Themes and possible direction."]
-];
-
+const options=[["one","One card","A focused message."],["three","Three cards","Past, present, possible future."],["five","Five-card overview","Situation, support, challenge, advice, outcome."],["celtic","Celtic Cross","A detailed ten-card reading."],["relationship","Love and relationships","Connection, dynamics, and direction."],["career","Money and career","Work, resources, and opportunities."],["wellbeing","Health","Balance, pressure, and self-care."],["general","General reading","Themes and possible direction."]];
 function buildDeck(){
- cards=majorData.map((m,i)=>({
-  name:m[0],arcana:"Major Arcana",theme:m[1],upright:m[2],action:m[3],question:m[4],
-  reversedTheme:"imbalance, delay, resistance, or inward experience around "+m[1],
-  reversed:`Reversed, ${m[0]} asks whether its central theme is being resisted, overused, delayed, or turned inward. This is not automatically the opposite of the upright meaning. It can describe an imbalance that needs attention, an internal process that is not yet visible, or a lesson that has not been integrated. ${m[2]}`,
-  reversedAction:`Look for where this theme is being avoided, exaggerated, or neglected. Make one measured adjustment and check it against the actual circumstances. ${m[3]}`,
-  reversedQuestion:`Where might I be experiencing ${m[1]} in an unbalanced, delayed, or less visible way?`,
-  index:i
- }));
- for(const [s,info] of Object.entries(suits)){
-  ranks.forEach(([rank,meaning])=>{
-   const name=rank==="Ace"?"Ace of "+s:rank+" of "+s;
-   const up=`The ${name} combines ${meaning} with ${info.domain}. Its number or court rank describes the form the theme takes, while the suit shows the area of life in which it may appear. Consider whether this pattern is beginning, being tested, stabilising, or reaching a turning point. ${info.upright}`;
-   const rev=`Reversed, the ${name} suggests that ${meaning} may be harder to express or manage constructively. The issue could be delay, excess, avoidance, mixed signals, or a need to change approach—not necessarily a bad outcome. ${info.reversed}`;
-   cards.push({
-    name,arcana:"Minor Arcana",suit:s,element:info.element,
-    theme:meaning+" expressed through "+info.domain,
-    upright:up,action:`Apply the suit's constructive approach to the card's theme: ${info.upright}`,
-    question:`Where do I see ${meaning} in ${info.domain}, and what response would be useful?`,
-    reversedTheme:"reconsidering "+meaning+" in "+info.domain,
-    reversed:rev,reversedAction:info.reversed,
-    reversedQuestion:`What is making ${meaning} harder to express or manage constructively?`
-   });
-  });
- }
-}
-function rand(n){
- const a=new Uint32Array(1);
- if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);
- else a[0]=Math.floor(Math.random()*4294967296);
- return a[0]%n;
-}
-function shuffleArray(a){
- const o=[...a];
- for(let i=o.length-1;i>0;i--){const j=rand(i+1);[o[i],o[j]]=[o[j],o[i]]}
- return o;
-}
-function renderOptions(){
- $("options").innerHTML="";
- options.forEach(([id,title,desc])=>{
-  const b=document.createElement("button");b.className="option";b.type="button";
-  b.setAttribute("aria-pressed",id===selected);
-  const s=document.createElement("strong");s.textContent=title;
-  const d=document.createElement("span");d.textContent=desc;
-  b.append(s,d);
-  b.onclick=()=>{selected=id;renderOptions();$("setupStatus").textContent=title+" selected."};
-  $("options").append(b);
+ cards=majorData.map((m,i)=>({name:m[0],arcana:"Major Arcana",theme:m[1],upright:m[2],action:m[3],question:m[4],reversedTheme:"imbalance, delay, resistance, or inward experience around "+m[1],reversed:`Reversed, ${m[0]} asks whether its central theme is being resisted, overused, delayed, or turned inward. This is not automatically the opposite of the upright meaning. It can describe an imbalance that needs attention, an internal process that is not yet visible, or a lesson that has not been integrated. ${m[2]}`,reversedAction:`Look for where this theme is being avoided, exaggerated, or neglected. Make one measured adjustment and check it against the actual circumstances. ${m[3]}`,reversedQuestion:`Where might I be experiencing ${m[1]} in an unbalanced, delayed, or less visible way?`,index:i}));
+ for(const [s,info] of Object.entries(suits))ranks.forEach(([rank,meaning],i)=>{
+  const name=rank==="Ace"?"Ace of "+s:rank+" of "+s;
+  const up=`The ${name} combines ${meaning} with ${info.domain}. Its number or court rank describes the form the theme takes, while the suit shows the area of life in which it may appear. Consider whether this pattern is beginning, being tested, stabilising, or reaching a turning point. ${info.upright}`;
+  const rev=`Reversed, the ${name} suggests that ${meaning} may be harder to express or manage constructively. The issue could be delay, excess, avoidance, mixed signals, or a need to change approach—not necessarily a bad outcome. ${info.reversed}`;
+  cards.push({name,arcana:"Minor Arcana",suit:s,element:info.element,theme, upright:up,action:`Apply the suit's constructive approach to the card's theme: ${info.upright}`,question:`Where do I see ${meaning} in ${info.domain}, and what response would be useful?`,reversedTheme:"reconsidering "+meaning+" in "+info.domain,reversed:rev,reversedAction:info.reversed,reversedQuestion:`What is making ${meaning} harder to express or manage constructively?`});
  });
+
+ const normalizedMeanings={};Object.entries(sourceMeanings).forEach(([k,v])=>{normalizedMeanings[k.replace(/[\u200B-\u200D\uFEFF]/g,"").trim()]=v;});
+ cards.forEach(c=>{const m=normalizedMeanings[c.name];if(m&&!m.sourceMissing){c.source=m;c.theme=(m.upright.key||c.theme);c.reversedTheme=(m.reversed.key||c.reversedTheme);c.upright=m.upright.general||c.upright;c.reversed=m.reversed.general||c.reversed;}});
 }
-function prepare(){
- readingQuestion=$("question").value.trim();
- deck=shuffleArray(cards);drawn=[];shuffled=false;
- $("drawPanel").classList.remove("hidden");$("readingPanel").classList.add("hidden");
- $("drawTitle").textContent=spreads[selected].title;
- $("drawDescription").textContent=spreads[selected].purpose;
- $("drawStatus").textContent="Shuffle the deck, then tap a card back to reveal it.";
- $("progress").textContent=`0 of ${spreads[selected].positions.length} cards drawn`;
- renderDeck();
- $("drawPanel").scrollIntoView({behavior:"smooth",block:"start"});
-}
-function renderDeck(){
- const root=$("deck");root.innerHTML="";
- deck.forEach(c=>{
-  const b=document.createElement("button");b.className="back";b.type="button";b.textContent="✧";
-  b.disabled=!shuffled||drawn.length>=spreads[selected].positions.length||drawn.includes(c);
-  b.setAttribute("aria-label","Draw a face-down tarot card");
-  b.onclick=()=>drawCard(c);root.append(b);
- });
-}
-function drawCard(c){
- if(!shuffled||drawn.length>=spreads[selected].positions.length||drawn.includes(c))return;
- drawn.push(c);renderDeck();
- $("progress").textContent=`${drawn.length} of ${spreads[selected].positions.length} cards drawn`;
- $("readingPanel").classList.remove("hidden");renderResults();
- if(drawn.length===spreads[selected].positions.length){
-  $("drawStatus").textContent="Your spread is complete.";
-  $("readingPanel").scrollIntoView({behavior:"smooth",block:"start"});
- }else $("drawStatus").textContent="Card revealed. Draw the next card to complete your spread.";
-}
-function focusForQuestion(q){
- const t=q.toLowerCase();
- const has=(...words)=>words.some(w=>t.includes(w));
- if(has("job","career","work","boss","promotion","business","professional","interview","salary","company"))return {topic:"career and practical goals",area:"work, resources, decisions, professional growth, and tangible constraints",lens:"career"};
- if(has("love","relationship","partner","marriage","dating","romantic","ex ","crush","boyfriend","girlfriend","husband","wife"))return {topic:"love and relationships",area:"emotional needs, communication, mutual effort, boundaries, and observable behaviour",lens:"relationship"};
- if(has("friend","family","parent","mother","father","sibling"))return {topic:"personal relationships",area:"communication, expectations, care, conflict, and boundaries",lens:"relationship"};
- if(has("money","finance","debt","invest","purchase","afford","wealth","income"))return {topic:"money and resources",area:"risk, resources, practical constraints, priorities, and long-term stability",lens:"practical"};
- if(has("health","illness","medical","symptom","diagnos","therapy","anxiety","stress","sleep","wellbeing","well-being"))return {topic:"wellbeing",area:"support, boundaries, stressors, and sustainable self-care",lens:"wellbeing"};
- if(has("should i","should we","whether","decision","choose","choice","decide","stay or leave","move","quit"))return {topic:"a decision you are weighing",area:"options, trade-offs, evidence, values, and consequences",lens:"decision"};
- if(has("future","next month","next year","will i","will we","what will"))return {topic:"a possible future direction",area:"current patterns, choices, uncertainty, and factors that could change the outcome",lens:"future"};
- return {topic:"your specific question",area:"the situation, motivations, constraints, choices, and outcomes described in your question",lens:"general"};
-}
-function contextualQuestion(q,c,pos){
- const f=focusForQuestion(q),rev=c.isReversed;
- let relation="";
- if(/past|recent past|foundation|underlying/i.test(pos))relation="Use this card to examine what may have contributed to the question you are asking. Look for a relevant pattern or previous choice; do not assume it proves a particular past event.";
- else if(/present|central|current/i.test(pos))relation="This position focuses on what deserves attention now. Ask which part of the situation is most clearly reflected in the card and what evidence supports that connection.";
- else if(/future|outcome|direction|near future/i.test(pos))relation="This position describes a possible trajectory if current patterns continue. It does not guarantee an event; decisions, new information, and other people’s actions can change the direction.";
- else if(/challenge|obstacle|complication|crossing|pressure/i.test(pos))relation="Read this as a possible complication in the situation, not as a verdict. Identify the concrete behaviour, assumption, resource gap, or constraint that could create friction.";
- else if(/advice|helpful|support|resource|strength|constructive/i.test(pos))relation="Translate the card into a response you can actually choose. The useful question is how its theme could help address the specific issue, not whether you should obey a prediction.";
- else if(/other person|environment|external/i.test(pos))relation="This position concerns observable dynamics around you. It cannot establish another person’s private thoughts or intentions; use their words and actions as evidence.";
- else if(/hopes|fears|aim|seek|need/i.test(pos))relation="This position asks how your wishes, fears, or priorities may shape your interpretation of the situation. Compare those feelings with what is actually known.";
- else relation=`In the role of “${pos}”, this card contributes a specific angle on the question. Connect its theme to the part of the situation this position is meant to examine.`;
- const questionLine=`Your question is: “${q}”. In this context, the card asks you to consider ${f.area}.`;
- const revLine=rev?" Its reversed orientation adds the possibility of delay, imbalance, resistance, avoidance, or an internal process. Decide which, if any, fits the evidence; do not automatically read it as a negative answer.":" Its upright orientation presents the theme more directly, but it remains a symbolic prompt rather than proof of what will happen.";
- return `${questionLine} ${relation}${revLine}`;
-}
+function rand(n){const a=new Uint32Array(1);if(crypto?.getRandomValues)crypto.getRandomValues(a);else a[0]=Math.floor(Math.random()*4294967296);return a[0]%n}
+function shuffleArray(a){const o=[...a];for(let i=o.length-1;i>0;i--){const j=rand(i+1);[o[i],o[j]]=[o[j],o[i]]}return o}
+function renderOptions(){$("options").innerHTML="";options.forEach(([id,title,desc])=>{const b=document.createElement("button");b.className="option";b.type="button";b.setAttribute("aria-pressed",id===selected);const s=document.createElement("strong");s.textContent=title;const d=document.createElement("span");d.textContent=desc;b.append(s,d);b.onclick=()=>{selected=id;renderOptions();$("topicWrap").classList.toggle("hidden",selected!=="one");$("setupStatus").textContent=title+" selected."};$("options").append(b)})}
+function prepare(){deck=shuffleArray(cards);drawn=[];shuffled=false;$("drawPanel").classList.remove("hidden");$("readingPanel").classList.add("hidden");$("drawTitle").textContent=spreads[selected].title;$("drawDescription").textContent=spreads[selected].purpose;$("drawStatus").textContent="Shuffle the deck, then tap a card back to reveal it.";$("progress").textContent=`0 of ${spreads[selected].positions.length} cards drawn`;renderDeck();$("drawPanel").scrollIntoView({behavior:"smooth",block:"start"})}
+function renderDeck(){const root=$("deck");root.innerHTML="";deck.forEach(c=>{const b=document.createElement("button");b.className="back";b.type="button";b.textContent="✧";b.disabled=!shuffled||drawn.length>=spreads[selected].positions.length||drawn.includes(c);b.setAttribute("aria-label","Draw a face-down tarot card");b.onclick=()=>drawCard(c);root.append(b)})}
+function drawCard(c){if(!shuffled||drawn.length>=spreads[selected].positions.length||drawn.includes(c))return;drawn.push(c);renderDeck();$("progress").textContent=`${drawn.length} of ${spreads[selected].positions.length} cards drawn`;$("readingPanel").classList.remove("hidden");renderResults();if(drawn.length===spreads[selected].positions.length){$("drawStatus").textContent="Your spread is complete.";$("readingPanel").scrollIntoView({behavior:"smooth",block:"start"})}else $("drawStatus").textContent="Card revealed. Draw the next card to complete your spread."}
 function positionMeaning(pos,c,i){
- if(readingQuestion)return contextualQuestion(readingQuestion,c,pos);
- const general=focusForQuestion("");
- let line="";
- if(/past|recent past|foundation/i.test(pos))line="Look for a prior influence, habit, or experience that may have helped shape the present. This is an invitation to reflect, not proof that a particular event occurred.";
- else if(/present|central|current/i.test(pos))line="This card focuses attention on what may be most active now. Compare its theme with observable circumstances and your own reactions.";
- else if(/future|outcome|direction|near future/i.test(pos))line="This is a possible direction if current patterns continue, not a fixed prediction. Your choices and outside circumstances remain important.";
- else if(/challenge|obstacle|complication|crossing/i.test(pos))line="This card highlights a tension to investigate. Look for a habit, conflict, resource gap, or assumption that may be complicating the situation.";
- else if(/advice|helpful|support|resource|strength|constructive/i.test(pos))line="Treat this as a possible response or resource. Convert its theme into one practical action you can choose.";
- else if(/other person|environment|external/i.test(pos))line="Consider how the surrounding conditions or observable behaviour may affect the situation. The card cannot reveal another person's private thoughts as fact.";
- else if(/hopes|fears|aim|seek|need/i.test(pos))line="This card draws attention to a wish, fear, or priority that may be influencing how the situation feels.";
- else line=`This position gives the card a particular role: ${pos.toLowerCase()}. Explore how its theme matters in that role, rather than treating it as an isolated keyword.`;
- return `${line} Since no question was supplied, read this as a general reflection on ${general.area}.`;
+ if(/past|recent past|foundation|underlying/i.test(pos))return "This position invites reflection on an earlier influence, habit, or experience that may have shaped the present. Treat it as a symbolic prompt, not proof that a particular event occurred.";
+ if(/present|central|current/i.test(pos))return "This card brings attention to the theme that may be most active now. Compare its message with observable circumstances and your own reactions.";
+ if(/future|outcome|direction|near future/i.test(pos))return "This position describes one possible direction if present patterns continue. It is not a fixed prediction; choices and circumstances can change the course.";
+ if(/challenge|obstacle|complication|crossing|pressure/i.test(pos))return "This card highlights a tension worth examining. Consider whether a habit, conflict, assumption, or lack of resources could be creating friction.";
+ if(/advice|helpful|support|resource|strength|constructive/i.test(pos))return "Read this card as a possible response or resource. Turn its theme into one practical action you can choose.";
+ if(/other person|environment|external/i.test(pos))return "Consider how surrounding conditions and observable behaviour may affect the situation. A card cannot establish another person's private thoughts or intentions as fact.";
+ if(/hopes|fears|aim|seek|need/i.test(pos))return "This position draws attention to a wish, fear, or priority that may shape expectations. Notice the difference between what you hope for and what is known.";
+ if(/your approach|your experience|emotional position/i.test(pos))return "Reflect on how your current attitude, feelings, and choices may interact with this card's theme.";
+ return `In the position "${pos}", this card adds a particular perspective. Consider how its theme connects with the other cards instead of interpreting it in isolation.`;
 }
-function cardImage(name){
- const slug=name.replaceAll(" ","_");
- return "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(slug+"_(Rider-Waite_Smith_tarot_deck).jpg");
-}
+function cardImage(name){const slug=name.replaceAll(" ","_");return "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(slug+"_(Rider-Waite_Smith_tarot_deck).jpg")}
+function selectedContext(c,rev,topic){const side=rev?"reversed":"upright",m=c.source&&c.source[side];if(!m)return [];const map={general:["General meaning",m.general],love:["Love and Relationships",m.love],career:["Money and Career",m.career],health:["Health",m.health],spirituality:["Spirituality",m.spirituality]};if(topic==="comprehensive")return Object.values(map).filter(x=>x[1]);if(topic==="auto"){let key=selected==="career"?"career":selected==="wellbeing"?"health":(["love","relationship"].includes(selected)?"love":"general");return map[key]&&map[key][1]?[map[key]]:[];}return map[topic]&&map[topic][1]?[map[topic]]:[];}
 function renderResults(){
- const root=$("results");root.innerHTML="";
- $("readingTitle").textContent=spreads[selected].title;
- $("readingDescription").textContent=spreads[selected].purpose;
- $("questionUsed").classList.toggle("hidden",!readingQuestion);
- $("questionUsed").textContent=readingQuestion?`Reading focus: “${readingQuestion}”`:"";
+ const root=$("results");root.innerHTML="";$("readingTitle").textContent=spreads[selected].title;$("readingDescription").textContent=spreads[selected].purpose;
  drawn.forEach((c,i)=>{
-  const pos=spreads[selected].positions[i],rev=c.isReversed,article=document.createElement("article");
-  article.className="result";
+  const pos=spreads[selected].positions[i],rev=c.isReversed,article=document.createElement("article");article.className="result";
   const p=document.createElement("div");p.className="position";p.textContent=`${i+1}. ${pos}`;
-  const top=document.createElement("div");top.className="cardtop";
-  const img=document.createElement("img");img.className="art"+(rev?" rev":"");img.alt=c.name;img.loading="lazy";img.src=cardImage(c.name);img.onerror=()=>{img.style.display="none"};
-  const intro=document.createElement("div"),title=document.createElement("div");
-  title.className="cardtitle";title.textContent=c.name+(rev?" — Reversed":"");
+  const top=document.createElement("div");top.className="cardtop";const img=document.createElement("img");img.className="art"+(rev?" rev":"");img.alt=c.name;img.loading="lazy";img.src=cardImage(c.name);img.onerror=()=>{img.style.display="none"};
+  const intro=document.createElement("div"),title=document.createElement("div");title.className="cardtitle";title.textContent=c.name+(rev?" — Reversed":"");
   const badge=document.createElement("div");badge.className="pill"+(rev?" revlabel":"");badge.textContent=rev?"REVERSED":"UPRIGHT";
   const cat=document.createElement("p");cat.className="status";cat.textContent=c.arcana+(c.suit?` · ${c.suit} · ${c.element}`:"");
-  const th=document.createElement("div");th.className="sectiontitle";th.textContent="Core themes";
-  const theme=document.createElement("div");theme.className="detail";theme.textContent=rev?c.reversedTheme:c.theme;
+  const th=document.createElement("div");th.className="sectiontitle";th.textContent="Core themes";const theme=document.createElement("div");theme.className="detail";theme.textContent=rev?c.reversedTheme:c.theme;
   intro.append(title,badge,cat,th,theme);top.append(img,intro);
-  const add=(heading,content,cls="detail")=>{
-   const h=document.createElement("div");h.className="sectiontitle";h.textContent=heading;
-   const d=document.createElement("div");d.className=cls;d.textContent=content;article.append(h,d);
-  };
-  article.append(p,top);
-  add(rev?"Reversed interpretation":"Card meaning",rev?c.reversed:c.upright);
-  add("What this card means here",positionMeaning(pos,c,i));
-  add("How to work with this card",rev?c.reversedAction:c.action);
-  add("Reflection question",rev?c.reversedQuestion:c.question,"prompt");
-  root.append(article);
+  const add=(heading,content,cls="detail")=>{const h=document.createElement("div");h.className="sectiontitle";h.textContent=heading;const d=document.createElement("div");d.className=cls;d.textContent=content;article.append(h,d)};
+  article.append(p,top);if(c.source){const side=rev?"reversed":"upright";add(rev?"Reversed key meanings":"Upright key meanings",c.source[side].key||"");const topic=(selected==="one"?oneTopic:"auto");selectedContext(c,rev,topic).forEach(([heading,content])=>add(heading,content));}else{add(rev?"Reversed key meanings":"Upright key meanings",rev?c.reversedTheme:c.theme);add(rev?"Reversed meaning":"Upright meaning",rev?c.reversed:c.upright);}add("Meaning in this position",positionMeaning(pos,c,i));root.append(article);
  });
- const complete=drawn.length===spreads[selected].positions.length;
- $("synthesisPanel").classList.toggle("hidden",!complete);
+ const complete=drawn.length===spreads[selected].positions.length;$("synthesisPanel").classList.toggle("hidden",!complete);
  if(complete){const s=makeSynthesis();$("synthesisText").textContent=s.text;$("synthesisAction").textContent=s.action}
 }
 function makeSynthesis(){
  const list=drawn.map((c,i)=>({c,pos:spreads[selected].positions[i],theme:c.isReversed?c.reversedTheme:c.theme}));
- const q=readingQuestion,f=focusForQuestion(q);
  let story="";
  if(selected==="one"){
-  const x=list[0];
-  story=`The central message is ${x.theme.toLowerCase()}. ${q?`For your question, “${q}”, this points toward examining ${f.area}.`:`With no specific question, the card invites you to notice where this theme is active in your life and what it asks you to reconsider.`} The important distinction is between what the card helps you notice and what the facts establish. Use it to identify a choice, pattern, or conversation worth examining rather than treating it as a yes/no verdict.`;
+  const x=list[0];story=`The central theme of this reading is ${x.theme.toLowerCase()}. Consider where this theme appears in everyday life, what it reveals about your current approach, and what it invites you to notice. A tarot card offers a symbolic perspective rather than a guaranteed prediction.`;
  }else if(selected==="three"){
   const [a,b,c]=list;
-  story=`The story these cards suggest is more specific than three separate time labels. ${a.c.name} introduces ${a.theme.toLowerCase()}; that earlier pattern may have created the conditions or expectations that the present now has to deal with. ${b.c.name} adds ${b.theme.toLowerCase()}, which can be read as the current pivot: it shows what may need attention, adjustment, or an honest decision. ${c.c.name} then brings ${c.theme.toLowerCase()} as a possible direction if the current situation is handled in that way.\n\nThe connection to examine is this: does the past theme help explain why the present feels as it does? Does the present card reinforce that pattern or offer a chance to change it? Does the final card describe a constructive development that could follow from that change—or a risk if nothing changes?`;
-  if(q)story+=`\n\nApplied to your question, “${q}”, the combination invites you to examine ${f.area}. The cards do not decide the answer for you. They suggest a way to frame the decision: identify which part of the past still affects the situation, deal directly with the issue that is active now, and choose actions that make the more constructive direction plausible.`;
-  else story+=`\n\nAs a general reading, this may describe a movement from an earlier influence through a current choice or tension toward a possible next phase. Look for a real-life situation where those three themes connect. If they do not fit your circumstances, do not force the story; use the card questions to find a more relevant interpretation.`;
+  story=`The cards form a sequence rather than three isolated meanings. ${a.c.name} introduces ${a.theme.toLowerCase()}, suggesting an earlier influence or pattern. ${b.c.name} brings attention to ${b.theme.toLowerCase()} as the present point of focus. ${c.c.name} offers ${c.theme.toLowerCase()} as one possible direction.\n\nConsider how the first theme may have shaped the second, and whether the present card reinforces an old pattern or creates an opportunity to respond differently. The final card describes a possibility, not an inevitable outcome.`;
  }else if(selected==="celtic"){
-  story=`The centre of this reading is ${list[0].c.name}, bringing ${list[0].theme.toLowerCase()}; the crossing card, ${list[1].c.name}, adds ${list[1].theme.toLowerCase()}. Together, these describe the main issue and the tension that may be complicating it. The foundation card, ${list[2].c.name}, suggests an underlying influence, while ${list[3].c.name} adds context from the recent past.\n\nYour conscious aim appears through ${list[4].c.name}, and ${list[5].c.name} suggests a possible near-term development. The way you may be approaching the situation is represented by ${list[6].c.name}; surrounding conditions are represented by ${list[7].c.name}. ${list[8].c.name} draws attention to hopes or fears that may colour your expectations. Finally, ${list[9].c.name} describes a possible trajectory if the current pattern continues.\n\nThe useful synthesis is to compare the challenge with the advice implied by your own approach and the external environment. Which factor can you influence? Which is outside your control? Does the possible outcome seem to depend on a change in behaviour, a clearer decision, or more information? The outcome card is not fixed; it is a scenario to consider in light of the other nine cards.`;
-  if(q)story+=`\n\nFor “${q}”, focus on the relationship between the central issue (${list[0].c.name}), its crossing challenge (${list[1].c.name}), and the practical direction implied by the later positions. This spread suggests questions to investigate about ${f.area}; it cannot confirm hidden facts or guarantee an outcome.`;
+  story=`The central issue is represented by ${list[0].c.name} (${list[0].theme.toLowerCase()}), while ${list[1].c.name} adds the crossing challenge of ${list[1].theme.toLowerCase()}. ${list[2].c.name} points to an underlying influence, and ${list[3].c.name} adds a perspective on the recent past. ${list[4].c.name} represents the conscious aim; ${list[5].c.name} suggests a possible near-term development. ${list[6].c.name} reflects your approach, ${list[7].c.name} the surrounding environment, and ${list[8].c.name} the hopes or fears that may colour expectations. ${list[9].c.name} offers a possible trajectory.\n\nRead these cards as a connected picture. Compare the challenge with the resources and responses available, distinguish what you can influence from what you cannot, and remember that the outcome can change as circumstances and choices change.`;
  }else{
-  story=`The first card, ${list[0].c.name}, frames the situation through ${list[0].theme.toLowerCase()}. ${list.slice(1,-1).map(x=>`${x.c.name} adds ${x.theme.toLowerCase()} in the role of ${x.pos.toLowerCase()}`).join(". ")}. The final card, ${list[list.length-1].c.name}, contributes ${list[list.length-1].theme.toLowerCase()} as a possible direction.\n\nTaken together, the spread asks you to connect the difficulty with the available support and the response you can choose. Do not read the outcome card alone: ask whether the advice or resource card offers a realistic way to address the challenge, and what conditions would need to be present for the direction to develop.`;
-  if(q)story+=`\n\nIn response to “${q}”, the relevant issue is ${f.area}. Read the challenge cards as possible friction to investigate and the advice card as a possible approach—not as evidence that another person will behave in a particular way or that an event is guaranteed.`;
-  else story+=`\n\nBecause you did not provide a specific question, this remains a general reading. The spread may help you identify an area of life where the same tension between situation, obstacle, and response is present.`;
+  story=`${list[0].c.name} frames this reading through ${list[0].theme.toLowerCase()}. ${list.slice(1,-1).map(x=>`${x.c.name} adds ${x.theme.toLowerCase()} in the position of ${x.pos.toLowerCase()}`).join(". ")}. ${list[list.length-1].c.name} contributes ${list[list.length-1].theme.toLowerCase()} as a possible direction.\n\nThe most useful interpretation comes from the relationships between the cards: how the challenge connects to the available support, which response seems constructive, and what conditions might help the possible direction develop. Avoid reading the final card as a guaranteed result.`;
  }
- const majorCount=list.filter(x=>x.c.arcana==="Major Arcana").length;
- const revCount=list.filter(x=>x.c.isReversed).length;
- const suitsCount={};list.forEach(x=>{if(x.c.suit)suitsCount[x.c.suit]=(suitsCount[x.c.suit]||0)+1});
+ const majorCount=list.filter(x=>x.c.arcana==="Major Arcana").length,revCount=list.filter(x=>x.c.isReversed).length,suitsCount={};list.forEach(x=>{if(x.c.suit)suitsCount[x.c.suit]=(suitsCount[x.c.suit]||0)+1});
  const lead=Object.entries(suitsCount).sort((a,b)=>b[1]-a[1])[0];let patterns="";
- if(lead&&lead[1]>=2)patterns+=`\n\nA recurring suit is ${lead[0]} (${lead[1]} card(s)), which adds emphasis to ${suits[lead[0]].domain}. This repeated area may be an important thread linking the cards.`;
- if(majorCount>=Math.max(2,Math.ceil(list.length/2)))patterns+=`\n\nThere are ${majorCount} Major Arcana cards in this spread. That gives the reading a strong emphasis on larger life themes, identity, values, or turning points rather than only day-to-day details.`;
- if(revCount)patterns+=`\n\n${revCount} card(s) are reversed. Their shared caution is to check for delay, imbalance, resistance, or inward processing in those specific positions; reversals do not mean the reading is doomed or simply opposite to upright meanings.`;
- const action=q?`For your question, “${q}”, write down (1) the part of this reading that matches observable facts, (2) the part that is only a possibility, and (3) one next step within your control. The cards point toward questions about ${f.area}; use real information and your own judgment before making a consequential decision.`:`Choose one card theme that genuinely fits your circumstances and one that does not. For the theme that fits, identify a practical action or conversation you can control. A useful general reading opens a question for reflection; it should not force a story onto your life.`;
+ if(lead&&lead[1]>=2)patterns+=`\n\nA recurring suit is ${lead[0]} (${lead[1]} cards), bringing repeated emphasis to ${suits[lead[0]].domain}. This may be an important thread linking the reading.`;
+ if(majorCount>=Math.max(2,Math.ceil(list.length/2)))patterns+=`\n\nThere are ${majorCount} Major Arcana cards in this spread, highlighting larger life themes, values, identity, or turning points.`;
+ if(revCount)patterns+=`\n\n${revCount} card(s) are reversed. Consider whether their themes are delayed, inward, resisted, or out of balance; reversed cards do not automatically mean the opposite or a bad outcome.`;
+ const action="Choose the card theme that feels most relevant, and identify one practical reflection or action it suggests. Also notice which parts do not fit your circumstances. Let the reading open possibilities for thought rather than force a story or replace real-world evidence.";
  return {text:story+patterns,action};
 }
+$("oneTopic").onchange=e=>{oneTopic=e.target.value;if(drawn.length)renderResults()};
 $("prepare").onclick=prepare;
-$("shuffle").onclick=()=>{
- deck=shuffleArray(deck);
- deck.forEach(c=>c.isReversed=rand(1000)<15);
- shuffled=true;drawn=[];
- $("readingPanel").classList.add("hidden");
- $("drawStatus").textContent="Shuffled. Tap any face-down card to reveal it.";
- renderDeck();
- $("progress").textContent=`0 of ${spreads[selected].positions.length} cards drawn`;
-};
-$("reset").onclick=()=>{
- deck=[];drawn=[];shuffled=false;
- $("drawPanel").classList.add("hidden");$("readingPanel").classList.add("hidden");
- $("question").value="";$("setupStatus").textContent="Choose a spread to begin.";
-};
+$("shuffle").onclick=()=>{deck=shuffleArray(deck);deck.forEach(c=>c.isReversed=rand(1000)<15);shuffled=true;drawn=[];$("readingPanel").classList.add("hidden");$("drawStatus").textContent="Shuffled. Tap any face-down card to reveal it.";renderDeck();$("progress").textContent=`0 of ${spreads[selected].positions.length} cards drawn`};
+$("reset").onclick=()=>{deck=[];drawn=[];shuffled=false;$("drawPanel").classList.add("hidden");$("readingPanel").classList.add("hidden");$("setupStatus").textContent="Choose a spread to begin."};
 $("newReading").onclick=()=>{$("reset").click();$("setup").scrollIntoView({behavior:"smooth",block:"start"})};
 $("again").onclick=prepare;
-renderOptions();buildDeck();
-</script>
-</body>
-</html>
+fetch("tarot-meanings.json").then(r=>{if(!r.ok)throw new Error("Could not load tarot-meanings.json");return r.json()}).then(data=>{sourceMeanings=data;renderOptions();buildDeck()}).catch(err=>{console.error(err);renderOptions();buildDeck();document.getElementById("setupStatus").textContent="Meanings data could not load. Make sure tarot-meanings.json is uploaded beside index.html."});
+</script></body></html>
